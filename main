@@ -1,0 +1,48 @@
+top t=new top(50, 350);
+top t1=new top(750, 350);
+granata g=new granata(50, 350);
+granata g1=new granata(750, 350);
+
+float kot=0.0;
+float kot1=0.0;
+boolean streljaj=false;
+boolean streljaj1=false;
+
+void setup() {
+   size (800, 400);
+}
+
+void draw() {
+  background(100);
+  fill(255);
+  if (keyPressed) {
+    if ((key == 'd' || key == 'D') && kot < 70) {
+       kot+=1.0; 
+    }
+    if ((key == 'a' || key == 'A') && kot > 0) {
+      kot-=1.0;
+    }
+    if (keyCode == RIGHT && kot1 < 0) {
+       kot1+=1.0; 
+    }
+    if (keyCode == LEFT && kot1 > -70) {
+      kot1-=1.0;
+    }
+    if (key == 'w' || key == 'W') {
+      streljaj=true;
+    }
+    if (key == ENTER) {
+      streljaj1=true;
+    }
+  }
+  //circle(50, 375, 50);
+  t.update(kot);
+  t1.update(kot1);
+  g.display();
+  g1.display();
+  if (streljaj)
+  g.update();
+  if (streljaj1)
+  g1.update();
+  
+}
